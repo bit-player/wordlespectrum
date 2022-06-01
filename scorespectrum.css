@@ -1,0 +1,345 @@
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 800px;
+  height: 640px;
+  position: relative;
+  margin: 5px auto;
+ }
+
+button {
+  flex: 60 60px;
+  max-width: 60px;
+  margin: auto 20px;
+  height: 50px;
+  font-size: 18px;
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  border-radius: 9px;
+  align-self: center;
+}
+
+/* The tricks for styling text inputs come
+   from Elson Correia, writing at
+    https://medium.com/codex/how-to-style-an-input-field-with-css-only-tips-and-techniques-e6a00e9dcc50 */
+
+.textinput {
+  position: relative;
+  font-size: 14px;
+  border-top: 20px solid transparent;
+  --field-padding: 6px;
+}
+
+.textinput input {
+  max-width: 200px;
+  flex: 200 200px;
+  margin: auto 0;
+  border: 1px solid #f2f2f2;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  outline: none;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.textinput input:disabled {
+  opacity: 0.5;
+}
+
+.textinput input.inputGood {
+  border: 1px solid green;
+}
+
+.textinput input.inputBad {
+  border: 1px solid #f46565;
+}
+
+.textinput .placeholder {
+  position: absolute;
+  left: var(--field-padding);
+  width: calc(100% - (var(--field-padding) * 2));
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  top: 24px;
+  transform: translateY(-50%);
+  color: #aaa;
+  transition: 
+    top 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.textinput input.dirty + .placeholder,
+.textinput input:focus + .placeholder,
+.textinput input:not(:placeholder-shown) + .placeholder {
+  top: -10px;
+  font-size: 10px;
+  color: #444;
+}
+
+.textinput .error-message {
+  width: 200px;
+  display: flex;
+  flex: 200 200px;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 10px;
+  background: #f46565;
+  color: #fff;
+  height: 21px;
+}
+
+.textinput .error-message:empty {
+  opacity: 0;
+}
+
+h2 {
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
+}
+
+div#headline {
+  position: relative; 
+  margin: 5px auto;
+}
+
+div.wordinputs {
+  width: 100%;
+  height: 88px;
+  position: relative; 
+  margin: 5px auto;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: left;
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+}
+
+.textin input {
+  /* width: 100px; */
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+div#the-viz {
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  position: relative; 
+  width: 800px;
+  height: 505px;
+  background-color: rgb(250, 250, 250);
+  margin: 5px auto;
+  /* border: 1px solid red; */
+}
+
+div#chartbox {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 729px;
+  height: 460px;
+  background-color: rgb(240, 240, 240);
+  /* background-color: rgb(230, 223, 207); */
+}
+
+.y-gridline {
+  /* border-top: 1px solid rgb(190, 190, 190); */
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
+.y-label {
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}
+
+.bar:hover {
+  border-left-color: red !important;
+}
+
+div#tilegrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+
+div.tile {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  margin: 1px;
+  border: 1px solid #535353;
+  background-color: #f3f3f3;
+}
+
+div.tile[data-status="x"] {
+  background-color: #f3f3f3;
+  color: #363b91;
+  opacity: 0.35;
+}
+
+div.tile[data-status="0"] {
+  background-color: #787C7E;
+  border-color: #787C7E;
+}
+
+div.tile[data-status="1"] {
+  background-color: #C9B35F;
+  border-color: #C9B35F;
+}
+
+div.tile[data-status="2"] {
+  background-color: #6CA967;
+  border-color: #6CA967;
+}
+
+div#stats {
+  position: relative;
+  width: 120px;
+  margin: auto;
+}
+
+div#statsbox {
+  width: 100%;
+  height: 58px;
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  vertical-align: middle;
+  margin: auto;
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+div#statsbox > p {
+  line-height: 150%;
+  margin: 0 5px;
+}
+
+#stats-label {
+  position: absolute;
+  top: -18px;
+  left: 27px;
+  font-weight: normal;
+  font-size: 0.8rem;
+
+}
+
+div#color-keys {
+  position: absolute;
+  right: 0;
+  bottom: 26px;
+  width: 729px;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div#bottom-legend {
+  position: absolute;
+  bottom: 3px;
+  right: 0px;
+  width: 729px;
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+div#left-legend {
+  position: absolute;
+  left: -13%;
+  top: 50%;
+  font-family: Verdana, Ariel, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  text-align: center;
+  transform: rotate(-90deg);
+}
+
+@media screen and (max-width: 500px) {
+  .textinput {
+    font-size: 12px;
+  }
+  .textinput input {
+    font-size: 20px;
+    max-width: 140px;
+    flex: 140 140px;
+  }
+  .textinput .placeholder {
+    top: 19px;
+  }
+  .textinput .error-message {
+    width: 140px;
+    flex: 140 140px;
+  }
+  button {
+    flex: 40 40px;
+    max-width: 40px;
+    margin: auto 2px;
+    height: 40px;
+    font-size: 13px;
+    background-color: #f2f2f2;
+    border: 1px solid #cccccc;
+    border-radius: 9px;
+    align-self: center;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .textinput {
+      font-size: 12px;
+    }
+    .textinput input {
+      font-size: 18px;
+      max-width: 120px;
+      flex: 120 120px;
+    }
+    .textinput .placeholder {
+      top: 19px;
+    }
+    .textinput .error-message {
+      width: 120px;
+      flex: 120 120px;
+    }
+    button {
+      flex: 40 40px;
+      max-width: 40px;
+      margin: auto 2px;
+      height: 40px;
+      font-size: 13px;
+      background-color: #f2f2f2;
+      border: 1px solid #cccccc;
+      border-radius: 9px;
+      align-self: center;
+    }
+    
+  
+}

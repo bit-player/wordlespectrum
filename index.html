@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Wordle Spectrum</title>
+    <meta name="author" content="Brian Hayes">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <link rel="stylesheet" href="scorespectrum.css"></link>
+  </head>
+
+  <body>
+    <div id="headline">
+      <h2>The Wordle Spectrum</h2>
+    </div>
+    <div class="wordinputs">
+      <label class="textinput" id="start-word-input">
+        <input type="text" id="start-word-text-field" placeholder="&nbsp;"/>
+        <span class="placeholder">Enter a word</span>
+        <span class="error-message" id="start-word-error" aria-live="polite"></span>
+      </label>
+      <button id="go-button">Go</button>
+      <div id="tilegrid"></div>
+      <div id="stats">
+        <div id="stats-label">Statistics</div>
+        <div id="statsbox"></div>
+      </div>
+    </div>
+    <div id="the-viz">
+      <div id="chartbox"></div>
+      <div id="left-legend">Number of target words per category</div>
+      <div id="color-keys">
+        <img src="five-gray.png" height="15px"/>
+        <img src="five-gold.png" height="15px"/>
+        <img src="five-green.png" height="15px"/>
+      </div>
+      <div id="bottom-legend">Wordle scoring categories</div>
+    </div>
+    <script type="text/javascript" src="scorespectrum.js"></script>
+  </body>
+  
+</html>
